@@ -40,6 +40,7 @@ export const defaultStep = {
   showSkipButton: false,
   spotlightClicks: false,
   spotlightPadding: 10,
+  disableSpotLight: false,
 };
 
 export const defaultProps = {

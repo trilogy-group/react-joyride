@@ -343,7 +343,8 @@ var defaultStep = {
   showProgress: false,
   showSkipButton: false,
   spotlightClicks: false,
-  spotlightPadding: 10
+  spotlightPadding: 10,
+  disableSpotLight: false
 };
 var defaultProps = {
   continuous: false,
@@ -1247,7 +1248,15 @@ var JoyrideOverlay = class extends React3.Component {
   }
   render() {
     const { mouseOverSpotlight, showSpotlight } = this.state;
-    const { disableOverlay, disableOverlayClose, lifecycle, onClickOverlay, placement, styles } = this.props;
+    const {
+      disableOverlay,
+      disableOverlayClose,
+      disableSpotLight,
+      lifecycle,
+      onClickOverlay,
+      placement,
+      styles
+    } = this.props;
     if (disableOverlay || lifecycle !== LIFECYCLE.TOOLTIP) {
       return null;
     }
@@ -1261,7 +1270,7 @@ var JoyrideOverlay = class extends React3.Component {
       pointerEvents: mouseOverSpotlight ? "none" : "auto",
       ...baseStyles
     };
-    let spotlight2 = showSpotlight && /* @__PURE__ */ React3.createElement(Spotlight_default, { styles: this.spotlightStyles });
+    let spotlight2 = !disableSpotLight && showSpotlight && /* @__PURE__ */ React3.createElement(Spotlight_default, { styles: this.spotlightStyles });
     if (getBrowser() === "safari") {
       const { mixBlendMode, zIndex, ...safarOverlay } = stylesOverlay;
       spotlight2 = /* @__PURE__ */ React3.createElement("div", { style: { ...safarOverlay } }, spotlight2);

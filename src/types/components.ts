@@ -93,6 +93,7 @@ export type Step = Simplify<
   BaseProps & {
     content: ReactNode;
     disableBeacon?: boolean;
+    disableSpotLight?: boolean;
     event?: string;
     floaterProps?: FloaterProps;
     hideFooter?: boolean;

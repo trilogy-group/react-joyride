@@ -199,6 +199,7 @@ type State = {
 type Step = Simplify<BaseProps & {
     content: ReactNode;
     disableBeacon?: boolean;
+    disableSpotLight?: boolean;
     event?: string;
     floaterProps?: Props$1;
     hideFooter?: boolean;

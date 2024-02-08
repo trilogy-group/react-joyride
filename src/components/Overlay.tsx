@@ -179,8 +179,15 @@ export default class JoyrideOverlay extends React.Component<OverlayProps, State>
 
   render() {
     const { mouseOverSpotlight, showSpotlight } = this.state;
-    const { disableOverlay, disableOverlayClose, lifecycle, onClickOverlay, placement, styles } =
-      this.props;
+    const {
+      disableOverlay,
+      disableOverlayClose,
+      disableSpotLight,
+      lifecycle,
+      onClickOverlay,
+      placement,
+      styles,
+    } = this.props;
 
     if (disableOverlay || lifecycle !== LIFECYCLE.TOOLTIP) {
       return null;
@@ -200,7 +207,7 @@ export default class JoyrideOverlay extends React.Component<OverlayProps, State>
       ...baseStyles,
     };
 
-    let spotlight = showSpotlight && (
+    let spotlight = !disableSpotLight && showSpotlight && (
       <Spotlight styles={this.spotlightStyles} />
     );
 

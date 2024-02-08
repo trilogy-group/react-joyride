@@ -178,7 +178,7 @@ export function shouldScroll(options: ShouldScrollOptions): boolean {
 
   return (
     !step.disableScrolling &&
-    (!isFirstStep || scrollToFirstStep || lifecycle === LIFECYCLE.TOOLTIP)  &&
+    (!isFirstStep || scrollToFirstStep || lifecycle === LIFECYCLE.TOOLTIP) &&
     (!step.isFixed || !hasPosition(target)) && // fixed steps don't need to scroll
     previousLifecycle !== lifecycle &&
     ([LIFECYCLE.BEACON, LIFECYCLE.TOOLTIP] as Array<Lifecycle>).includes(lifecycle)
