@@ -200,7 +200,7 @@ export default class JoyrideOverlay extends React.Component<OverlayProps, State>
       ...baseStyles,
     };
 
-    let spotlight = placement !== 'center' && showSpotlight && (
+    let spotlight = showSpotlight && (
       <Spotlight styles={this.spotlightStyles} />
     );
 
